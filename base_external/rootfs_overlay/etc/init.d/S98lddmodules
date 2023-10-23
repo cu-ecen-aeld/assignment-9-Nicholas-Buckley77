@@ -1,0 +1,38 @@
+#!/bin/sh
+#Assignment 7 AESD Nicholas Buckley start stop script from lecture linux system init adapted for assignment 5 repo
+
+#Check argument count...
+if [ $# -ne 1 ]
+then #if it's less than required exit error 1 and print
+
+    echo "$# is not enough arguments."
+    echo " please use start or stop arguments"
+    exit 1
+    
+fi
+
+case "$1" in
+        start)
+            echo "Starting scull load"
+            scull_load
+            echo "Mod load faulty driver"
+            module_load faulty
+            echo "Mod probe hello driver"
+            modprobe hello
+            ;;
+        stop)
+            echo "Stopping scull load"
+            scull_unload
+            echo "Mod unload faulty driver"
+            module_unload
+            echo "Rm mod hello driver"
+            rmmod hello
+            ;;
+
+        *)
+            echo "Usage: $0 {start|stop}"
+        exit 1
+
+esac
+
+exit 0
