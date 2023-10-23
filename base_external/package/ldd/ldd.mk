@@ -1,11 +1,11 @@
 
 ##############################################################
 #
-# LDD
+# LDD - copy of aesd-assignments adapted to assignment 7
 #
 ##############################################################
 
-LDD_VERSION = '93a5b781dc876d22dfe68d4957959063c70cc62e'
+LDD_VERSION = 'e2f75acb5293f88445afabbaf5a103c8e40db348'
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
@@ -13,7 +13,8 @@ LDD_SITE = 'git@github.com:cu-ecen-aeld/assignment-7-Nicholas-Buckley77.git'
 LDD_SITE_METHOD = git
 LDD_GIT_SUBMODULES = YES
 
-LDD_MODULE_SUBDIRS += scull misc-modules
+LDD_MODULE_SUBDIRS += scull
+LDD_MODULE_SUBDIRS += misc-modules
 
 # dont need build commands!
 define LDD_INSTALL_TARGET_CMDS
@@ -25,5 +26,5 @@ define LDD_INSTALL_TARGET_CMDS
 
 endef
 
+$(eval $(kernel-module)) # not kernel-package...
 $(eval $(generic-package))
-$(eval $(kernel-package))
