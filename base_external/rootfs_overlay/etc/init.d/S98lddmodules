@@ -19,6 +19,9 @@ case "$1" in
             module_load faulty
             echo "Mod probe hello driver"
             modprobe hello
+
+            echo "Starting aesdChar mod"
+            /usr/bin/aesdchar_load
             ;;
         stop)
             echo "Stopping scull load"
@@ -27,6 +30,9 @@ case "$1" in
             module_unload
             echo "Rm mod hello driver"
             rmmod hello
+
+            echo "Stoping aesdChar mod"
+            /usr/bin/aesdchar_unload
             ;;
 
         *)
